@@ -55,4 +55,33 @@ class CircularLinkedListTest {
     cll.roll();
     assertNotNull(cll.currentNode);
   }
+
+  @Test
+  void exampleOutputWorks() {
+    CircularLinkedList<String> cll = new CircularLinkedList<String>();
+
+    cll.append("Go");
+    cll.append("Mediteranean Avenue");
+    cll.append("Community Chest");
+    cll.append("Baltic Avenue");
+    cll.append("Income Tax");
+
+    assertEquals("Go", cll.currentNode);
+
+    cll.step();
+
+    assertEquals("Mediteranean Avenue", cll.currentNode);
+
+    cll.step();
+    cll.step();
+    cll.step();
+
+    assertEquals("Income Tax", cll.currentNode);
+
+    for (int i = 0; i < 37; i++) {
+      cll.step();
+    }
+
+    assertEquals("Mediteranean Avenue", cll.currentNode);
+  }
 }
